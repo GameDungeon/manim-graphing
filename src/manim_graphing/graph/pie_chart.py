@@ -6,7 +6,6 @@ class PieChart(Graph):
     def construct(self):
 
         self.pie_colors = [YELLOW, GREEN, BLUE, ORANGE, RED]
-        print(self.values)
 
         angles = [x / sum(self.values) * 360 * DEGREES for x in self.values]
         sectors = []
@@ -46,10 +45,7 @@ class PieChart(Graph):
             current_angle += angle
             sectors.append(piece)
 
-        if self.title != None:
-            Title = Text(self.title).move_to(UP * 2)
-            self.play(Write(Title))
-
+        self.display_title(2)
         self.play(ShowCreation(Pie))
         self.add_foreground_mobject(Circle(color=WHITE, radius=0.01, fill_opacity=1))
         self.add_foreground_mobject(up_line)
