@@ -1,14 +1,26 @@
 [tool.poetry]
 name = "manim-graphing"
 version = "0.1.0"
-description = ""
+description = "A Manim Plugin for Graphing"
 authors = ["GameDungeon <gamedungeon@protonmail.com>"]
+readme="README.md"
+repository="https://github.com/GameDungeon/manim-graphing"
 
 [tool.poetry.dependencies]
 python = "^3.8"
+manim = ">=0.3.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
+
+[tool.poetry.dev-dependencies.black]
+version = "^20.8b1"
+allow-prereleases = false
+python = "^3.6"
+markers = "platform_python_implementation == 'CPython'"
+
+[tool.poetry.plugins."manim.plugins"]
+"manim_graphing" = "manim_graphing"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
