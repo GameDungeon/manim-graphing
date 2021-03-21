@@ -1,4 +1,4 @@
-from manim import Scene, GraphScene, Text, Write, UP
+from manim import Scene, GraphScene, Text, Write
 
 
 class _Base:
@@ -7,12 +7,13 @@ class _Base:
         self.data = data
 
         if self.data != None:
-            self.labels = [*self.data.keys()]
-            self.values = [*self.data.values()]
+            if type(self.data) == dict:
+                self.labels = [*self.data.keys()]
+                self.values = [*self.data.values()]
 
-    def display_title(self, y):
+    def display_title(self, x, y):
         if self.title != None:
-            Title = Text(self.title).move_to(UP * y)
+            Title = Text(self.title).move_to([x, y, 0])
             self.play(Write(Title))
 
 
@@ -23,6 +24,6 @@ class Graph(_Base, Scene):
 
 
 class Plot(_Base, GraphScene):
-    def __init__(self, data, title=None):
-        _Base.__init__(self, data, title=title)
-        GraphScene.__init__(self)
+    def __init__(self, data, title=None, **kwargs):
+        _Base.__init__(self, data, title)
+        GraphScene.__init__(self, **kwargs)

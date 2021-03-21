@@ -45,7 +45,7 @@ class PieChart(Graph):
             current_angle += angle
             sectors.append(piece)
 
-        self.display_title(2)
+        self.display_title(0, 2)
         self.play(ShowCreation(Pie))
         self.add_foreground_mobject(Circle(color=WHITE, radius=0.01, fill_opacity=1))
         self.add_foreground_mobject(up_line)
