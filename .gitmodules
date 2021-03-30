@@ -1,0 +1,3 @@
+[submodule "graph_manim"]
+	path = graph_manim
+	url = https://github.com/hydrobeam/manim.git

@@ -1,29 +1,22 @@
-from manim import Scene, GraphScene, Text, Write
+"""Where the base graphs are stored."""
+
+from manim import *
+import typing
 
 
-class _Base:
-    def __init__(self, data=None, title=None):
-        self.title = title
-        self.data = data
+class Graph(VMobject):
+    """Base Class for this plugins graphs."""
 
-        if self.data != None:
-            if type(self.data) == dict:
-                self.labels = [*self.data.keys()]
-                self.values = [*self.data.values()]
-
-    def display_title(self, x, y):
-        if self.title != None:
-            Title = Text(self.title).move_to([x, y, 0])
-            self.play(Write(Title))
+    def __init__(self) -> None:
+        super().__init__()
 
 
-class Graph(_Base, Scene):
-    def __init__(self, data, title=None):
-        _Base.__init__(self, data, title)
-        Scene.__init__(self)
+class Plot(Graph):
+    """Base class for plots."""
 
+    def __init__(self) -> None:
+        super().__init__()
 
-class Plot(_Base, GraphScene):
-    def __init__(self, data, title=None, **kwargs):
-        _Base.__init__(self, data, title)
-        GraphScene.__init__(self, **kwargs)
+    def plot(self, values: typing.List[typing.Union[float, int]]) -> None:
+        """To Be Defined in Child Classes."""
+        pass
