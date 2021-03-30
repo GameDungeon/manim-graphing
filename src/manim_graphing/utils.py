@@ -15,5 +15,6 @@ def show_graph(graph) -> None:
 
     Show(graph).render(True)
 
+
 def animate_graph(graph) -> None:
-    pass #TODO: Make NOW
+    pass  # TODO: Make NOW

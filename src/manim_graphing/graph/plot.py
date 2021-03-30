@@ -11,7 +11,7 @@ class MarkerPlot(Plot):
 
         self.axes = Axes(
             x_range=[0, len(values) + 1, 1],
-            y_range=[min(values) if min(values) < 0 else 0, max(values) +1, 1],
+            y_range=[min(values) if min(values) < 0 else 0, max(values) + 1, 1],
             x_length=9,
             y_length=6,
         )
@@ -53,6 +53,7 @@ class DotPlot(Plot):
             self.add(Dot([self.axes.coords_to_point(value, i)]))
             i += 1
 
+
 class LinePlot(Plot):
     def __init__(self, values: typing.List[typing.Union[float, int]]) -> None:
         super().__init__()
@@ -76,6 +77,6 @@ class LinePlot(Plot):
 
             if last_point is not None:
                 self.add(Line(point.get_center(), last_point))
-            
+
             last_point = point.get_center()
             self.add(point)
