@@ -17,4 +17,15 @@ def show_graph(graph) -> None:
 
 
 def animate_graph(graph) -> None:
-    pass  # TODO: Make NOW
+    class Show(Scene):
+        def __init__(self, graph) -> None:
+            super().__init__()
+            self.graph = graph
+
+        def construct(self) -> None:
+            self.play(self.graph.animations)
+
+    if graph.animations is not None:
+        Show(graph).render(True)
+    else:
+        raise ValueError("The provided Graph does not have defult animations.")

@@ -10,6 +10,8 @@ class Graph(VMobject):
     def __init__(self) -> None:
         super().__init__()
 
+        self.animations = None
+
 
 class Plot(Graph):
     """Base class for plots."""

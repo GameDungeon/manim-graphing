@@ -6,6 +6,8 @@ class PieChart(Graph):
     def __init__(self, data: dict, display_labels: bool = True):
         super().__init__()
 
+        self.animations = None
+
         self.pie_colors = [YELLOW, GREEN, BLUE, ORANGE, RED]
 
         self.labels = list()
