@@ -89,6 +89,8 @@ class ScatterPlot(Plot):
         super().__init__()
 
         self.colors = ["RED", "BLUE", "GREEN"]
+        self.animations = list()
+        self.dots = list()
 
         self.axes = Axes(
             x_range=[0, max([x[0] for y in values for x in y]) + 1, 1],
@@ -99,6 +101,7 @@ class ScatterPlot(Plot):
         )
 
         self.add(self.axes)
+        self.animations.append(Create(self.axes))
 
         for i, value in enumerate(values):
             for _ in value:
@@ -108,7 +111,14 @@ class ScatterPlot(Plot):
                     self.plot(self.colors[i])
 
     def plot(self, color: str) -> None:
-        self.add(Dot(self.axes.coords_to_point(self.x, self.y), color=color))
+        dot = Dot(self.axes.coords_to_point(self.x, self.y), color=color)
+        self.add(dot)
+        self.dots.append(Create(dot))
+
+
+    def get_default_animation(self) -> list:
+        self.animations.append(AnimationGroup(*self.dots, lag_ratio=0.1))
+        return self.animations
 
 class DotPlot(Plot):
     def __init__(self, values: typing.List[typing.Union[float, int]]) -> None:
