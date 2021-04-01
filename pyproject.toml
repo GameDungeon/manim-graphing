@@ -14,6 +14,9 @@ manim = {git = "https://github.com/hydrobeam/manim.git", rev = "coordinate_syste
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 Sphinx = "^3.5.3"
+guzzle_sphinx_theme = "^0.7.11"
+recommonmark = "^0.7.1"
+sphinx-copybutton = "^0.3.1"
 
 [tool.poetry.dev-dependencies.black]
 version = "^20.8b1"
