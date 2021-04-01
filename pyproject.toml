@@ -10,10 +10,10 @@ repository="https://github.com/GameDungeon/manim-graphing"
 python = "^3.8"
 numpy = "^1.20.1"
 manim = {git = "https://github.com/hydrobeam/manim.git", rev = "coordinate_system_upgrades"}
-Sphinx = "^3.5.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
+Sphinx = "^3.5.3"
 
 [tool.poetry.dev-dependencies.black]
 version = "^20.8b1"
