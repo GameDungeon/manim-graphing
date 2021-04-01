@@ -1,5 +1,5 @@
-Welcome to Manim Graphing's documentation!
-==========================================
+Manim Graphing Overview
+=======================
 
 .. toctree::
    :maxdepth: 2
