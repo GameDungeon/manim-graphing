@@ -1,6 +1,7 @@
 """Utility functions go here"""
 
 from manim import *
+from .animation import DefaultCreation
 
 
 def show_graph(graph) -> None:
@@ -23,9 +24,8 @@ def animate_graph(graph) -> None:
             self.graph = graph
 
         def construct(self) -> None:
-            self.play(self.graph.animations)
+            self.play(DefaultCreation(self.graph))
 
-    if graph.animations is not None:
-        Show(graph).render(True)
-    else:
-        raise ValueError("The provided Graph does not have defult animations.")
+    Show(graph).render(True)
+
+

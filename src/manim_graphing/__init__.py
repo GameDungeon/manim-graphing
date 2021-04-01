@@ -4,4 +4,5 @@ from .graph.charts import *
 from .graph.graph import *
 from .graph.plot import *
 
+from .animation import *
 from .utils import *

@@ -11,6 +11,9 @@ class LinePlot(Plot):
 
         self.colors = ["RED", "BLUE", "GREEN"]
 
+        self.animations = list()
+        self.line_animations = list()
+
         self.axes = Axes(
             x_range=[0, max([len(x) for x in values]) + 1, 1],
             y_range=[0, max([max(a) for a in values]) + 1, 1],
@@ -20,6 +23,7 @@ class LinePlot(Plot):
         )
 
         self.add(self.axes)
+        self.animations.append(Create(self.axes))
 
         for i, value in enumerate(values):
             self.value = value
@@ -31,13 +35,24 @@ class LinePlot(Plot):
             point = self.axes.coords_to_point(i, value) 
 
             if last_point is not None:
-                self.add(Line(point, last_point, stroke_width=3, color=color))
+                line = Line(last_point, point, stroke_width=3, color=color)
+                self.add(line)
+                self.line_animations.append(Create(line))
 
             last_point = point
 
             if self.dot_points:
-                self.add(Dot(point, color=color))
+                d = Dot(point, color=color)
+                self.add(d)
+                self.line_animations.append(Create(d))
 
+    def get_default_animation(self) -> list:
+        animations = self.animations
+        lines = AnimationGroup(*self.line_animations, lag_ratio=0.1)
+        animations.append(lines)
+
+
+        return animations
 
 class MarkerPlot(Plot):
     """Like a line plot, but with dots instead of lines."""

@@ -10,7 +10,8 @@ class Graph(VMobject):
     def __init__(self) -> None:
         super().__init__()
 
-        self.animations = None
+    def get_default_animation(self) -> typing.Optional[list]:
+        return None
 
 
 class Plot(Graph):
