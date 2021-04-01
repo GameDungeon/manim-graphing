@@ -48,6 +48,7 @@ extensions = [
     "sphinx.ext.doctest",
     "sphinx.ext.extlinks",
     "sphinx.ext.linkcode",
+    "sphinxext.opengraph",
     #"manim_directive", add later
 ]
 
